@@ -29,11 +29,16 @@ h2 {
   padding: 0.5rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
+  display: flex;
+  flex-direction: row;
 }
 
 .container{
   margin: 2rem;
   padding: 0.5rem;
+  display: flex;
+  background-color: var(--color-back);
+  border-radius: 5px;
 }
 
 .column{
@@ -41,7 +46,6 @@ h2 {
   padding: 1rem;
   width: 50%;
   float: left;
-  background-color: var(--color-back);
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -81,6 +85,7 @@ h2 {
   border-radius: 5px;
   border: 2px solid var(--color-d);
   transition: 0.3s;
+  background-color: white;
 }
 
 .form-button:hover {

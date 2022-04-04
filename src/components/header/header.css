@@ -1,0 +1,14 @@
+.btn {
+  margin-left: auto;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid var(--color-d);
+  transition: 0.3s;
+  background-color: white;
+  font-size: 18px;
+}
+
+.btn:hover {
+    background-color: var(--color-d);
+    color: white;
+}
