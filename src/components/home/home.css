@@ -1,0 +1,136 @@
+* {
+    --space: calc(100%-240px);
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    /*overflow: hidden;*/
+}
+
+.menu-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 240px;
+    background: var(--color-back);
+    padding: 6px 14px;
+}
+
+.menu-bar .logo-content .logo {
+    color: black;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.menu-bar ul {
+    margin-top: 20px;
+}
+
+.menu-bar ul li {
+    height: 50px;
+    width: 100%;
+    margin: 0 5px;
+    list-style: none;
+}
+
+.menu-bar ul li a{
+    color: black;
+    display: flex;
+    align-items: center;
+    transition: all 0.4s ease;
+    border-radius: 12px;
+    padding: 10px 10px 10px 15px;
+}
+
+.menu-bar ul li a:hover{
+    background: #887e6f;
+}
+
+.menu-bar .profile-content {
+    position: absolute;
+    color: black;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #c9b9a2;
+}
+
+.menu-bar .profile-content .profile {
+    position: relative;
+    padding:  10px 6px;
+    height: 60px;   
+}
+
+.menu-bar .profile-content .profile-details{
+    display: flex;
+    align-items: center;
+}
+
+.menu-bar .profile-content img {
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+}
+
+.menu-bar .profile-content .name-prof {
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.home-content {
+    position: absolute;
+    height: 100%;
+    width: var(--space);
+    left: 240px;
+}
+
+
+/* MOVER*/
+.page-title {
+    margin-left: 5rem;
+    margin-top: 20px;
+}
+
+.courses {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 20px;
+    height: 150px;
+    width: 14rem;
+    border: 3px solid var(--color-back);
+    border-radius: 12px;
+    margin: 50px;
+    transition: 0.4s;
+}
+
+.courses .course-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.course-button h4 {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.card {
+    color: black;
+    
+}
+
+.courses:hover {
+    background-color: var(--color-back);
+}
+

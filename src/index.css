@@ -8,6 +8,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  font-family: 'Roboto', sans-serif;
 }
 
 :root{
@@ -27,7 +28,6 @@ h2 {
   /*background-color: aqua;*/
   margin: 2rem 5rem 0 5rem;
   padding: 0.5rem;
-  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   display: flex;
   flex-direction: row;
@@ -94,7 +94,48 @@ h2 {
 }
 
 .video {
-  width: 100%;
-  height: 300px;
+  width: 80%;
+  height: 400px;
 }
+
+.info-course {
+  position: absolute;
+  width: 20vw;
+  padding: 50px 0px 50px 50px;
+  height: 100%;
+}
+
+.comp-ex {
+  position: absolute;
+  width: 50vw;
+  left: 20vw;
+  margin-bottom: 100px;
+}
+
+.subject {
+  font-weight: 300;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-left: 19px;
+  font-size: 25px;
+  transition: 0.3s;
+}
+
+.subject:hover {
+  font-weight: 400;
+}
+
+.subject a {
+  color: black;
+}
+
+
+.subject-s {
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 25px;
+  padding-left: 19px;
+}
+
 

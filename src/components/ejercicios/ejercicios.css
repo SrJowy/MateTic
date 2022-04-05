@@ -1,12 +1,14 @@
 .container-ejs {
-    margin: 2rem 5rem 0 5rem;
+    margin: 2rem 0 5rem 5rem;
     font-family: 'Roboto', sans-serif;
+    height: 100%;
 }
 
 .form-ej {
-    border: 2px solid var(--color-back);
+    border: 3px solid var(--color-back);
     border-radius: 5px;
-    padding: 10px;
+    padding: 20px;
+    height: 950px;
 }
 
 .pregunta {
@@ -26,3 +28,14 @@ input {
     width: 100%;
     margin-bottom: 3px;
 }
+
+.btn-send {
+    padding: 20px;
+    float: right;
+}
+
+.form-button {
+    width: 30%;
+    float: right;
+}
+
