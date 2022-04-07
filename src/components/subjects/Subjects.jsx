@@ -1,5 +1,3 @@
-import React, { useState } from 'react'
-import { ReactDOM } from 'react'
 import { CgMathDivide } from 'react-icons/cg'
 import { Link } from 'react-router-dom'
 import './subjects.css'
