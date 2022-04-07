@@ -6,6 +6,7 @@
   transition: 0.3s;
   background-color: white;
   font-size: 18px;
+  color: black;
 }
 
 .btn:hover {

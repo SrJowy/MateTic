@@ -1,0 +1,44 @@
+.head-bar {
+   display: flex;
+}
+
+.par {
+    margin: 15px;
+}
+
+.title {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.par p{
+    text-align: justify;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.head-bar .btn {
+    color: black;
+    padding-top: 13px;
+}
+
+.head-bar .btn:hover {
+    background-color: var(--color-d);
+    color: white;
+}
+
+.footer .btn {
+    color: black;
+    padding-top: 13px;
+}
+
+.footer .btn:hover {
+    background-color: var(--color-d);
+    color: white;
+}
+
+.footer {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

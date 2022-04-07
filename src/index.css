@@ -57,10 +57,12 @@ h2 {
   margin-top: 50px;
   width: 100%;
   margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
 }
 
 .form-input {
-  width: 50%;
+  width: 20vw;
   padding: 5px;
   margin-top: 5px;
   margin-bottom: 10px;
@@ -81,11 +83,11 @@ h2 {
 .form-button {
   margin-top: 25px;
   padding: 10px;
-  width: 50%;
   border-radius: 5px;
   border: 2px solid var(--color-d);
   transition: 0.3s;
   background-color: white;
+  width: 20vw;
 }
 
 .form-button:hover {
@@ -102,7 +104,7 @@ h2 {
   position: absolute;
   width: 20vw;
   padding: 50px 0px 50px 50px;
-  height: 100%;
+  height: auto;
 }
 
 .comp-ex {
@@ -110,32 +112,61 @@ h2 {
   width: 50vw;
   left: 20vw;
   margin-bottom: 100px;
+  height: auto;
 }
 
 .subject {
   font-weight: 300;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  padding-left: 19px;
-  font-size: 25px;
-  transition: 0.3s;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 65px;
+  font-size: 20px;
 }
 
-.subject:hover {
+.subject-activable:hover {
   font-weight: 400;
 }
 
-.subject a {
+.subject-activable {
+  font-weight: 300;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 65px;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.subject-activable a {
   color: black;
 }
 
 
 .subject-s {
   font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 20px;
+  padding-left: 65px;
+}
+
+.subject-title {
+  margin-left: 19px;
   margin-top: 30px;
-  margin-bottom: 30px;
-  font-size: 25px;
-  padding-left: 19px;
+}
+
+.subtitle {
+  font-size: 20px;
+  margin-left: 40px;
+}
+
+.container-block {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  height: auto;
+}
+
+.math-content {
+  height: auto;
 }
 
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import './home.css'
-import 'boxicons';
 import pic from './resources/profile-photo.png'
 import {Link} from 'react-router-dom';
 
@@ -18,7 +17,10 @@ function Home (comp) {
             <Link to="/home">INICIO</Link>
           </li>
           <li>
-            <Link to="/home/mateDBH4">MATEMÁTICAS DBH4</Link>
+            <Link to="/home/mateDBH4">-- Funciones</Link>
+          </li>
+          <li>
+            <Link to="/home/foroGeneral">FORO GENERAL</Link>
           </li>
         </ul>
         <div class= "profile-content">
