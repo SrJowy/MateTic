@@ -1,3 +1,4 @@
+import React from 'react'
 import { CgMathDivide } from 'react-icons/cg'
 import { Link } from 'react-router-dom'
 import './subjects.css'

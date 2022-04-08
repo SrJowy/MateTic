@@ -24,6 +24,16 @@ function Home (comp) {
           </li>
         </ul>
         <div class= "profile-content">
+          <ul class="nav-list">
+            <li>
+              <Link to="/home/userData">Datos usuario</Link>
+            </li>
+            <li>
+              <Link to="/home/calificaciones">Calificaciones</Link>
+            </li>
+            </ul>
+          <div class="user-zone">  
+          </div>
           <div class="profile">
             <div class="profile-details">
               <img src={pic} alt="profile-img"></img>
