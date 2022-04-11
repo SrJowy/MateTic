@@ -2,8 +2,12 @@ import React from 'react'
 import './home.css'
 import pic from './resources/profile-photo.png'
 import {Link} from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 function Home (comp) {
+    const c = new Cookies();
+    const username = c.get('username')
+
   return (
     <div className="body">
       <div class = "menu-bar">
@@ -23,22 +27,22 @@ function Home (comp) {
             <Link to="/home/foroGeneral">FORO GENERAL</Link>
           </li>
         </ul>
+        <ul class="nav-list-down">
+          <li>
+            <Link to="/home/userData">Datos usuario</Link>
+          </li>
+          <li>
+            <Link to="/home/calificaciones">Calificaciones</Link>
+          </li>
+        </ul>
         <div class= "profile-content">
-          <ul class="nav-list">
-            <li>
-              <Link to="/home/userData">Datos usuario</Link>
-            </li>
-            <li>
-              <Link to="/home/calificaciones">Calificaciones</Link>
-            </li>
-            </ul>
           <div class="user-zone">  
           </div>
           <div class="profile">
             <div class="profile-details">
               <img src={pic} alt="profile-img"></img>
               <div class = "name-prof">
-                <div class= "name">Joel Bra</div>
+                <div class= "name">{ username }</div>
                 <div class= "prof">Profesor</div>
               </div>
             </div>

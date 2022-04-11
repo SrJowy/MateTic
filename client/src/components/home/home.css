@@ -33,6 +33,12 @@ body {
     margin-top: 20px;
 }
 
+.menu-bar .nav-list-down{
+    position: absolute;
+    bottom: 70px;
+    width: 212px;
+}
+
 .menu-bar ul li {
     height: 50px;
     width: 100%;
@@ -61,6 +67,7 @@ body {
     left: 0;
     width: 100%;
     background-color: #c9b9a2;
+    height: 70px;
 }
 
 .menu-bar .profile-content .profile {
