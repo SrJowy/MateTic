@@ -18,8 +18,8 @@ function Subjects() {
   return (
     <div className="home-content">
         <h2 className="page-title">INICIO</h2>
-            <span className="card" style={{"display": "block"}} onClick={showBlocks}>
-                <div className ="courses">
+            <span className="card" style={{"display": "block"}} >
+                <div className ="courses" onClick={showBlocks}>
                     <div class = "course-button">
                     <CgMathDivide style={ style }/>
                     <div className="break"></div>

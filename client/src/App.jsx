@@ -12,6 +12,7 @@ import Foro from './components/Foro/Foro';
 import Discussion from './components/Foro/Discussion';
 import UserPage from './components/User/UserPage';
 import Escribir from './components/Foro/Write'
+import Marks from './components/User/Marks';
 
 export function App() {
   return (
@@ -20,6 +21,7 @@ export function App() {
           <Route exact path="/" element = { <div><Header /><Welcome /></div> } />
           <Route path="/home" element= { <PrivateRoute> <div><Home /><Subjects/></div> </PrivateRoute> } /> 
           <Route path="/home/user" element= { <PrivateRoute> <div><Home /><UserPage /></div></PrivateRoute>} />
+          <Route path="/home/calificaciones" element= { <PrivateRoute> <div><Home /><Marks /></div></PrivateRoute>} />
           <Route path="/home/foroGeneral" element = {<PrivateRoute> <div> <Home /><Foro /></div></PrivateRoute>} />
           <Route path="/home/foroGeneral/escribir" element = {<PrivateRoute> <div> <Home /><Escribir /></div></PrivateRoute>} />
           <Route path="/home/foroGeneral/discussion" element = {<PrivateRoute> <div> <Home /><Discussion /></div></PrivateRoute>} />
