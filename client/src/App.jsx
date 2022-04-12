@@ -11,6 +11,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Foro from './components/Foro/Foro';
 import Discussion from './components/Foro/Discussion';
 import UserPage from './components/User/UserPage';
+import Escribir from './components/Foro/Write'
 
 export function App() {
   return (
@@ -20,6 +21,7 @@ export function App() {
           <Route path="/home" element= { <PrivateRoute> <div><Home /><Subjects/></div> </PrivateRoute> } /> 
           <Route path="/home/user" element= { <PrivateRoute> <div><Home /><UserPage /></div></PrivateRoute>} />
           <Route path="/home/foroGeneral" element = {<PrivateRoute> <div> <Home /><Foro /></div></PrivateRoute>} />
+          <Route path="/home/foroGeneral/escribir" element = {<PrivateRoute> <div> <Home /><Escribir /></div></PrivateRoute>} />
           <Route path="/home/foroGeneral/discussion" element = {<PrivateRoute> <div> <Home /><Discussion /></div></PrivateRoute>} />
           <Route path="/home/mateDBH4" element = { <PrivateRoute> <div><Home /><Lessons /></div> </PrivateRoute>} />
           <Route path="/home/mateDBH4/funcPolinomicas" element = { <PrivateRoute><div><Home /> <InfoLesson /> </div> </PrivateRoute>} />
