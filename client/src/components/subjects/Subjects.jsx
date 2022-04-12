@@ -1,11 +1,10 @@
 import React from 'react'
 import { CgMathDivide } from 'react-icons/cg'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './subjects.css'
 
 function Subjects() {
     const style = {fontSize: "35px"}
-    const navigate = useNavigate();
 
     function showBlocks() {
         const target = document.getElementById("space");

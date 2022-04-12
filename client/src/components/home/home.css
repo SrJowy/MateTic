@@ -46,6 +46,10 @@ body {
     list-style: none;
 }
 
+.menu-bar ul .sub-link {
+    margin-left: 25px;
+}
+
 .menu-bar ul li a{
     color: black;
     display: flex;

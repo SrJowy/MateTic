@@ -29,7 +29,16 @@ function Home () {
             <Link to="/home">INICIO</Link>
           </li>
           <li>
-            <Link to="/home/mateDBH4">-- Funciones</Link>
+            <Link className="sub-link" to="/home/mateDBH4">Números y álgebra</Link>
+          </li>
+          <li>
+            <Link className="sub-link" to="/home/mateDBH4">Geometría</Link>
+          </li>
+          <li>
+            <Link className="sub-link" to="/home/mateDBH4">Funciones</Link>
+          </li>
+          <li>
+            <Link className="sub-link" to="/home/mateDBH4">Estadística</Link>
           </li>
           <li>
             <Link to="/home/foroGeneral">FORO GENERAL</Link>
@@ -37,7 +46,7 @@ function Home () {
         </ul>
         <ul className="nav-list-down">
           <li>
-            <Link to="/home/userData">Datos usuario</Link>
+            <Link to="/home/user">Datos usuario</Link>
           </li>
           <li>
             <Link to="/home/calificaciones">Calificaciones</Link>

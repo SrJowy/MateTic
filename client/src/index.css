@@ -180,3 +180,15 @@ h2 {
   background-color: var(--color-d);
 }
 
+.home-back {
+  margin: 40px;
+}
+
+.home-header {
+  margin-bottom: 30px;
+  display: flex;
+}
+
+.home-header h2 {
+  margin-left: 20px;   
+}
