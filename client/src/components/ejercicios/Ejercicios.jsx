@@ -18,7 +18,7 @@ export default function Ejercicios() {
     }
 
   return (
-    <div>
+    <div className="home-content">
         <div class="info-course">
             <h2 class= "subtitle">Funciones elementales</h2>
             <p class="subject-s">&gt; Funciones polinómicas</p>

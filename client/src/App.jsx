@@ -7,16 +7,17 @@ import Subjects from './components/subjects/Subjects';
 import Lessons from './components/Lessons/Lessons';
 import InfoLesson from './components/infoLesson/InfoLesson';
 import React from 'react';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export function App() {
   return (
     <BrowserRouter>
         <Routes>
-          <Route index element = { <div><Header /><Welcome /></div> } />
-          <Route path="/home" element= { Home(<Subjects/>) } />
-          <Route path="/home/mateDBH4" element = {Home(<Lessons/>)} />
-          <Route path="/home/mateDBH4/funcPolinomicas" element = { Home(<InfoLesson/>)} />
-          <Route path="/home/mateDBH4/funcPolinomicas/ejercicios" element = { Home(<Ejercicios/>)} />
+          <Route exact path="/" element = { <div><Header /><Welcome /></div> } />
+          <Route path="/home" element= { <PrivateRoute> <div><Home /><Subjects/></div> </PrivateRoute> } /> 
+          <Route path="/home/mateDBH4" element = { <PrivateRoute> <div><Home /><Lessons /></div> </PrivateRoute>} />
+          <Route path="/home/mateDBH4/funcPolinomicas" element = { <PrivateRoute><div><Home /> <InfoLesson /> </div> </PrivateRoute>} />
+          <Route path="/home/mateDBH4/funcPolinomicas/ejercicios" element = { <PrivateRoute> <div><Home /><Ejercicios /></div></PrivateRoute>} />
         </Routes>
     </BrowserRouter>
     

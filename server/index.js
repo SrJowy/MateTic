@@ -14,7 +14,6 @@ app.listen(5000, ()=>{
 app.post("/api/checkData", (req, res) => {
     const username = req.body.userName
     const password = req.body.pass
-
     if (username == "HOLA" && password == "ADIOS") res.send(true)
 
 });

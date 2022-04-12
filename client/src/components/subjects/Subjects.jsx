@@ -1,11 +1,11 @@
 import React from 'react'
 import { CgMathDivide } from 'react-icons/cg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './subjects.css'
 
 function Subjects() {
     const style = {fontSize: "35px"}
-
+    const navigate = useNavigate();
 
     function showBlocks() {
         const target = document.getElementById("space");
@@ -17,7 +17,7 @@ function Subjects() {
     }
 
   return (
-    <div>
+    <div className="home-content">
         <h2 className="page-title">INICIO</h2>
             <span className="card" style={{"display": "block"}} onClick={showBlocks}>
                 <div className ="courses">
