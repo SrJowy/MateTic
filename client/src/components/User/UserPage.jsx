@@ -7,6 +7,7 @@ const UserPage = () => {
             <div className="home-header">
                 <h2>Datos del usuario</h2>
             </div>
+            
         </div>
     </div>
   )

@@ -4,13 +4,25 @@
 
 .foro-data {
     background-color: var(--color-back);
-    padding: 20px;
+    padding: 30px;
     border-radius: 12px;
     width: 100%;
+    display: flex;
 }
 
 .foro-data h3 {
     margin-bottom: 20px;
+}
+
+.column-user {
+    margin-left: 20px;
+    margin-right: 50px;
+    width: fit-content;
+}
+
+.column-user h4 {
+    text-align: center;
+    margin-top: 15px;
 }
 
 .foro-data p {
@@ -19,4 +31,8 @@
 
 .data-bottom {
     margin-top: 20px;
+}
+
+.photo-user {
+    height: 80px;
 }
