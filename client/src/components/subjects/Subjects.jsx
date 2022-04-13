@@ -17,13 +17,16 @@ function Subjects() {
 
   return (
     <div className="home-content">
-        <h2 className="page-title">INICIO</h2>
+        <div className="home-back">
+            <div className="home-header">
+                <h2>INICIO</h2>
+            </div>
             <span className="card" style={{"display": "block"}} >
                 <div className ="courses" onClick={showBlocks}>
                     <div class = "course-button">
-                    <CgMathDivide style={ style }/>
+                        <CgMathDivide style={ style }/>
                     <div className="break"></div>
-                    <h4>MATEMÁTICAS</h4>
+                        <h4>MATEMÁTICAS</h4>
                     <div className="break"></div>
                     <p>DBH 4</p>
                     </div>
@@ -37,6 +40,7 @@ function Subjects() {
                     <h2 class="block-title">4. Estadística y probabilidad</h2>
                 </div>
             </div>
+        </div>
     </div>
   )
 }
