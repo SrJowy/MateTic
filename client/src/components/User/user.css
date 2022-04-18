@@ -1,0 +1,65 @@
+.user-data {
+    display: flex;
+    background-color: var(--color-back);
+    padding: 25px;
+    border-radius: 12px;
+    
+}
+
+.user-photo {
+    margin-right: 5rem;
+}
+
+.user-photo > img{
+    width: 100px;
+
+}
+
+.user-mail-name {
+    margin-right: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.user-school {
+    text-align: center;
+}
+
+.school-photo {
+    display: flex;
+    justify-content: center;
+}
+
+.school-photo > img{
+    height: 80px;
+}
+
+.main-content {
+    margin: 20px;
+    padding: 20px;
+}
+
+.option {
+    display: flex;
+    margin-top: 30px;
+}
+
+.option > .form-input{
+    margin: 10px;
+    margin-left: auto;
+}
+
+.option > p {
+    margin-top: 15px;
+}
+
+.option > .btn {
+    font-size: 16px;
+    width: 10rem;
+    height: fit-content;
+    padding: 5px;
+    margin-top: 8px;
+    margin-left: 0;
+}

@@ -61,3 +61,8 @@
 .courses:hover {
     background-color: var(--color-back);
 }
+
+.container-normal {
+    width: 100%;
+    height: 100%;
+}
