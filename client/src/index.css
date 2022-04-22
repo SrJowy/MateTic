@@ -194,3 +194,7 @@ h2 {
 .home-header h2 {
   margin-left: 20px;   
 }
+
+.error-msg {
+  color: rgb(114, 27, 27);
+}

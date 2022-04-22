@@ -4,8 +4,8 @@ import Cookies from 'universal-cookie'
 
 const privateRoute = ({children}) => {
     const cookie = new Cookies();
-    const username = cookie.get("username");
-    return username ? children : <Navigate to="/" />
+    const data = cookie.get("username");
+    return data ? children : <Navigate to="/" />
 }
 
 export default privateRoute

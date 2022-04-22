@@ -59,8 +59,8 @@ function Home () {
             <div className="profile-details">
               <img src={pic} alt="profile-img"></img>
               <div className = "name-prof">
-                <div className= "name">{ username }</div>
-                <div className= "prof">Profesor</div>
+                <div className= "name">{ username[1] }</div>
+                <div className= "prof">{ username[2] ? <p>Alumno</p> : <p>Profesor</p> }</div>
               </div>
               <BiExit onClick={ signOut } className= "icon" style= { style }/>
             </div>
