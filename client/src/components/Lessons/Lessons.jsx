@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function Lessons() {
+  const unitFe = "Funciones Elementales";
+  const unitF = "Funciones";
   return (
     <div className="home-content">
       <div class ="math-content">
@@ -23,7 +25,7 @@ function Lessons() {
           <div class="container-block">
           <h3 className="subtitle">9. Funciones elementales</h3>
               <div class="subject-activable">
-                  <Link to="/home/mateDBH4/funcPolinomicas">Funciones polinómicas</Link>
+                  <Link to="/home/mateDBH4/funcPolinomicas" state={{title: unitFe}}>Funciones polinómicas</Link>
               </div>
               <h2 class="subject-activable">Funciones racionales</h2>
               <h2 class="subject-activable">Funciones exponenciales y logarítmicas</h2>

@@ -3,18 +3,20 @@ import { FaPen } from 'react-icons/fa'
 import { FaArrowCircleLeft } from 'react-icons/fa'
 import './foro.css'
 import pic from '../home/resources/profile-photo.png'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, useLocation } from 'react-router-dom'
 import Axios from 'axios'
 
 const Foro = () => {
     const style = {fontSize: "35px", margin: "0px"}
-    const name = "Foro General"
+    const location = useLocation();
+    const name = location.state.foro;
     const [dataList, setDataList] = useState([]);
+    const [data, setData] = useState(false);
     const navigate = useNavigate()
 
     const returnPage = () => navigate("/home");
 
-    const writeEntry = () => navigate("/home/foroGeneral/escribir", {state:{userTitle: "Nueva discusión", foroName: name}})
+    const writeEntry = () => navigate("/home/foroGeneral/escribir", {state:{userTitle: "Nueva discusión", foroName: name, new: true}})
     
     useEffect(() => {
         const data = []
@@ -22,11 +24,12 @@ const Foro = () => {
         .then(response => {
             for (var i = 0; i < Object.keys(response.data).length; i++) {
                 const r = response.data[i];
-                data.push(r)
+                data.push(r);
             }
-            setDataList(data)
+            setDataList(data);
+            if (data.length != 0) setData(true);
         });
-    }, []);
+    }, [name]);
   
     return (
     <div className="home-content">
@@ -38,7 +41,7 @@ const Foro = () => {
                     <FaPen onClick={ writeEntry } className='icon' style={ style }></FaPen>
                 </div>
             </div>
-            {dataList.map((val) => {
+            {data ? dataList.map((val) => {
                  return <div className="foro-data">
                     <div className="column-user">
                         <img src={pic} alt="profile-img" className="photo-user"></img>
@@ -48,11 +51,11 @@ const Foro = () => {
                         <h3> { val.titulo } </h3>
                         <p> { val.mensaje } </p> 
                         <div className="data-bottom">
-                            <Link className="btn" to="/home/foroGeneral/discussion">Ver discusión</Link>   
+                            <Link className="btn" to="/home/foroGeneral/discussion" key={ val.titulo } state={ {title: val.titulo, message: val.mensaje, user: val.correo, foro: name} }>Ver discusión</Link>   
                         </div>
                     </div>
                 </div>
-            })}
+            }) : <h3 className="ctr">No hay entradas en el foro</h3>}
             
         </div>
     </div>

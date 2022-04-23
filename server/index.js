@@ -38,6 +38,7 @@ app.post("/api/checkData", (req, res) => {
             }
         }
     });
+    connection.end();
 
 });
 
@@ -71,6 +72,7 @@ app.post("/api/sendNewDiscussion", async (req, res) => {
         if (er) console.log(er);
         else res.send({text: 'Se ha añadido tu respuesta'})
     })
+    connection.end();
 })
 
 app.post("/api/getEntries", async (req, res) => {
@@ -80,10 +82,56 @@ app.post("/api/getEntries", async (req, res) => {
 
     while (id == -1) id = await catchId(foro, connection);
 
-    
     const select = "SELECT titulo, mensaje, correo FROM discusion WHERE foro = " + id + ";";
     connection.query(select, (er, re, fi) => {
         if (er) console.log(er);
         else res.send(re)
     })
+    connection.end();
 })
+
+const catchDiscussionId = (t, connection) => {
+    return new Promise((resolve, reject) => {
+        const select = "SELECT id_discusion FROM discusion WHERE titulo = '" + t + "';";
+        connection.query(select, (err, result, fields) => {
+            if (err) {
+                return reject(err);
+            } else {
+                resolve(result[0].id_discusion);
+            }
+        });
+    });
+}
+
+app.post("/api/getResponses", async (req, res) => {
+    const title = req.body.title;
+    var id = -1;
+    var connection = mysql.createConnection(data);
+    while (id == -1) id = await catchDiscussionId(title, connection);
+
+    const select = "SELECT mensaje, correo FROM aporte WHERE id_discusion = ?;";
+    const vars = [id];
+    connection.query(select, vars, (er, re, fi) => {
+        if (er) console.log(er);
+        else res.send(re);
+    })
+    connection.end();
+})
+
+app.post("/api/sendNewEntry", async (req, res) => {
+    const title = req.body.disc_title;
+    const name = req.body.name;
+    const text = req.body.discussionText;
+    var id = -1;
+    var connection = mysql.createConnection(data);
+
+    while (id == -1) id = await catchDiscussionId(title, connection);
+
+    const insert = "INSERT INTO aporte (mensaje, id_discusion, correo) VALUES (?,?,?);";
+    const vars = [text, id, name];
+    connection.query(insert, vars, (er, re, fi) => {
+        if (er) console.log(er);
+        else res.send({text: "Se ha añadido tu aporte"});
+    })
+    connection.end();
+});

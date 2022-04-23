@@ -184,6 +184,7 @@ h2 {
 
 .home-back {
   margin: 40px;
+  width: 850px;
 }
 
 .home-header {
@@ -197,4 +198,8 @@ h2 {
 
 .error-msg {
   color: rgb(114, 27, 27);
+}
+
+.ctr {
+  margin-left: 55px;
 }

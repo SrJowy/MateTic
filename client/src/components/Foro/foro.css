@@ -19,12 +19,18 @@
 .column-user {
     margin-left: 20px;
     margin-right: 50px;
-    width: fit-content;
+    width: 200px;
+    display: block;
 }
 
 .column-user h4 {
     text-align: center;
     margin-top: 15px;
+}
+
+.column-user img {
+    margin: auto;
+    display: block;
 }
 
 .data-bottom {
@@ -46,6 +52,10 @@
     width: 100%;
     display: flex;
     margin-top: 30px;
+}
+
+.info {
+    width: 500px;
 }
 
 .info p {

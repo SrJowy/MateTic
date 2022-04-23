@@ -1,46 +1,61 @@
 import React, { useState } from 'react';
-import { FaArrowCircleLeft } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import Cookies from 'universal-cookie';
 
-const Write = (data) => {
+const Write = () => {
   const navigate = useNavigate();
-  const style = {fontSize: "35px", margin: "0px"};
 
   const location = useLocation();
-  const title = location.state.userTitle
-  const foroName = location.state.foroName
+  const title = location.state.userTitle;
+  const foroName = location.state.foroName;
+  const new_discussion = location.state.new;
+  let discussion_title = "";
 
-  const returnPage = () => navigate("/home/foroGeneral");
+  if (!new_discussion) {
+    discussion_title = location.state.title;
+  }
 
   const [text, setText] = useState("");
   const [discTitle, setDiscTitle] = useState("");
 
   const send = () => {
-    const cookies = new Cookies();
-    const username = cookies.get('username');
-    Axios.post("http://localhost:5000/api/sendNewDiscussion", {
-      discussionTitle: discTitle,
-      discussionText: text,
-      foro: foroName,
-      name: username
-    }).then(response => {
-      alert(response.data["text"])
-      navigate("/home/foroGeneral")
-    })
+    if (new_discussion) {
+      const cookies = new Cookies();
+      const userData = cookies.get('username');
+      Axios.post("http://localhost:5000/api/sendNewDiscussion", {
+        discussionTitle: discTitle,
+        discussionText: text,
+        foro: foroName,
+        name: userData[0]
+      }).then(response => {
+        alert(response.data["text"])
+        navigate("/home/foroGeneral/", {state:{foro: foroName}})
+      })
+    } else if (!new_discussion) {
+      const cookies = new Cookies();
+      const userData = cookies.get('username');
+      Axios.post("http://localhost:5000/api/sendNewEntry", {
+        discussionText: text,
+        disc_title: discussion_title,
+        name: userData[0]
+      }).then(response => {
+        alert(response.data["text"])
+        navigate("/home/foroGeneral/discussion", {state:{title: discussion_title, message: location.state.message, user: location.state.user, foro: foroName}})
+      })
+    }
+    
   }
 
   return (
     <div className="home-content">
       <div className="home-back">
         <div className="home-header">
-        <FaArrowCircleLeft onClick= { returnPage } className="icon" style= { style }></FaArrowCircleLeft>
             <h2>{ title }</h2>
         </div>
           <div className="discussion-title">
             <p>Título de la discusión:</p>
-            <input className = "form-input" type="text" id="title" name="title" onChange={(e) => { setDiscTitle(e.target.value) }}/>
+            { new_discussion ? <input className = "form-input" type="text" id="title" name="title" onChange={(e) => { setDiscTitle(e.target.value) }}/> : discussion_title }
           </div>
           <div className="message-div">
             <p>Pregunta:</p>

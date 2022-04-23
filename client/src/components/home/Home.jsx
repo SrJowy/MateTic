@@ -9,7 +9,8 @@ function Home () {
   const c = new Cookies();
   const username = c.get('username');
   const navigate = useNavigate();
-  const style = {fontSize: "35px"}
+  const style = {fontSize: "35px"};
+  const data = {foro: "Foro General"};
 
   const signOut = () => {
     c.remove('username');
@@ -41,7 +42,7 @@ function Home () {
             <Link className="sub-link" to="/home/mateDBH4">Estadística</Link>
           </li>
           <li>
-            <Link to="/home/foroGeneral">FORO GENERAL</Link>
+            <Link to="/home/foroGeneral" state={ data }>FORO GENERAL</Link>
           </li>
         </ul>
         <ul className="nav-list-down">
