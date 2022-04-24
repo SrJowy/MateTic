@@ -23,7 +23,7 @@ function Subjects() {
             </div>
             <span className="card" style={{"display": "block"}} >
                 <div className ="courses" onClick={showBlocks}>
-                    <div class = "course-button">
+                    <div className = "course-button">
                         <CgMathDivide style={ style }/>
                     <div className="break"></div>
                         <h4>MATEMÁTICAS</h4>
@@ -32,12 +32,12 @@ function Subjects() {
                     </div>
                 </div>
             </span>
-            <div id = "space" class = "space" style= {{"display": "none"}}>
+            <div id = "space" className = "space" style= {{"display": "none"}}>
                 <div className = "container-adapted">
-                    <h2 class="block-title">1. Números y álgebra</h2>
-                    <h2 class="block-title">2. Geometría</h2>
-                    <Link class = "block-title-activable" to="/home/mateDBH4/">3. Funciones</Link>
-                    <h2 class="block-title">4. Estadística y probabilidad</h2>
+                    <h2 className="block-title">1. Números y álgebra</h2>
+                    <h2 className="block-title">2. Geometría</h2>
+                    <Link className = "block-title-activable" to="/home/mateDBH4/">3. Funciones</Link>
+                    <h2 className="block-title">4. Estadística y probabilidad</h2>
                 </div>
             </div>
         </div>

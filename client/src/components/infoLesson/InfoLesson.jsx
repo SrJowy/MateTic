@@ -1,14 +1,22 @@
-import React, { useEffect } from 'react'
-import './infoLesson.css'
-import { Link, useLocation } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import './infoLesson.css';
+import { Link, useLocation } from 'react-router-dom';
+import Axios from 'axios';
+import parse from 'html-react-parser';
 
 function InfoLesson() {
     const location = useLocation();
     const title = location.state.title;
+    const lesson = location.state.lesson;
+    const [data, setData] = useState("<div></div>");
 
     useEffect(() => {
-        
-    });
+        Axios.post("http://localhost:5000/api/getInfoLesson", { title: title, lesson: lesson})
+        .then(response => {
+            setData(response.data[0].contenido);
+        });
+    }, [lesson, title]);
+
   return (
     <div className="home-content">
         <div className="info-course">
@@ -25,7 +33,7 @@ function InfoLesson() {
                     <Link className="btn" to="/home/foroGeneral" state={{foro: "Foro " + title}}>FORO DEL TEMA</Link>
                 </div>
                 <div className="par">
-                    
+                    {parse(data)}
                 </div>
                 <div className="footer">
                     <Link className="btn" to="/home/mateDBH4/funcPolinomicas/ejercicios">EJERCICIOS</Link>

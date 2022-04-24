@@ -135,3 +135,18 @@ app.post("/api/sendNewEntry", async (req, res) => {
     })
     connection.end();
 });
+
+app.post("/api/getInfoLesson", (req, res) => {
+    const title = req.body.title;
+    const lesson = req.body.lesson;
+
+    var connection = mysql.createConnection(data);
+
+    const select = "SELECT contenido FROM apartado WHERE nombre_apartado = ? AND tema = ?;";
+    const vars = [lesson, title];
+    connection.query(select, vars, (er, re, fi) => {
+        if (er) console.log(er);
+        else res.send(re);
+    })
+    connection.end();
+});

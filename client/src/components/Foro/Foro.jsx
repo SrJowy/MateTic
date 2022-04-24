@@ -27,7 +27,7 @@ const Foro = () => {
                 data.push(r);
             }
             setDataList(data);
-            if (data.length != 0) setData(true);
+            if (data.length !== 0) setData(true);
         });
     }, [name]);
   
