@@ -38,7 +38,7 @@ export default function Welcome() {
                 <input className = "form-input" type="password" id="pass" name="pass" onChange={(e) => { setPassword(e.target.value) }}></input><br></br>
                 <button onClick={(e) => {checkData(); e.preventDefault()}} className = "form-button">ACCEDER</button>
             </div>
-            { error ? <p className="error-msg"> El usuario o contraseña son icorrectos</p> : null }
+            { error ? <p className="error-msg"> El usuario o contraseña son incorrectos</p> : null }
         </div>
         <div className = "column">
           <iframe className = "video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
