@@ -26,12 +26,12 @@ const UserPage = () => {
             </div>
           </div>
           <div className="main-content">
-            <div className="option">
+            <div className="option-user">
               <p>Cambiar correo:</p>
               <input className = "form-input" type="email" id="mail" name="mail" />
               <button className = "btn">Cambiar</button>
             </div>
-            <div className="option">
+            <div className="option-user">
               <p>Cambiar contraseña:</p>
               <input className = "form-input" type="email" id="mail" name="mail" />
               <button className = "btn">Cambiar</button>

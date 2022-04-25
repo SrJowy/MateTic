@@ -1,23 +1,42 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './ejercicios.css'
+import Axios from 'axios'
+import { useLocation } from 'react-router-dom';
+import parse from 'html-react-parser';
 
 export default function Ejercicios() {
+    const location = useLocation();
+    const lesson = location.state.lesson;
+
+    const [data, setData] = useState("<div></div>");
 
     function checkAnswers() {
-        if(document.getElementById("o12").checked &&
-            document.getElementById("o23").checked &&
-            document.getElementById("o31").checked &&
-            document.getElementById("o41").checked &&
-            document.getElementById("o43").checked &&
-            document.getElementById("o51").checked &&
-            document.getElementById("o64").checked) {
-                alert("Has acertado todas")
-        } else {
-            alert("Hay errores, corrígelos")
+        var toSendId = [];
+        var toSendResponse = [];
+        var responses = document.getElementsByTagName("input");
+        var toSend = {};
+        for (var i = 0, n=responses.length; i < n; i++) {
+            if (responses[i].checked) {
+                toSendId.push(responses[i].name);
+                toSendResponse.push(responses[i].value);
+            }
         }
+
+        toSendId.forEach((element, index) =>{
+            toSend[element] = toSendResponse[index];
+        });
+        Axios.post("http://localhost:5000/api/correctExercise", {lesson: lesson, responses: toSend})
+        .then(res => {
+            alert(res.data.message)
+        });
     }
 
-    useEffect()
+    useEffect(() => {
+        Axios.post("http://localhost:5000/api/getExercise", {lesson: lesson})
+        .then(res => {
+            setData(res.data[0].contenido)
+        });
+    }, [lesson]);
 
   return (
     <div className="home-content">
@@ -34,7 +53,7 @@ export default function Ejercicios() {
                     <div className="form-ej">
                         <h3>Funciones polinómicas</h3>
                         <form>
-                            
+                            { parse(data) }
                             <button className="form-button-correct" onClick={(e) => {checkAnswers(); e.preventDefault()}}>ENVIAR</button>
                         </form>
                     </div>

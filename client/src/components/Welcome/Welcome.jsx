@@ -32,9 +32,9 @@ export default function Welcome() {
         <div className = "column">
             <h2>Iniciar Sesión</h2>
             <div className="form-container">
-                <p className = "input-label" for="mail">Nombre de Usuario</p>
+                <p className = "input-label" htmlFor="mail">Nombre de Usuario</p>
                 <input className = "form-input" type="text" id="mail" name="mail" onChange={(e) => { setMail(e.target.value) }}></input><br></br>
-                <p className = "input-label" for="password">Contraseña</p>
+                <p className = "input-label" htmlFor="password">Contraseña</p>
                 <input className = "form-input" type="password" id="pass" name="pass" onChange={(e) => { setPassword(e.target.value) }}></input><br></br>
                 <button onClick={(e) => {checkData(); e.preventDefault()}} className = "form-button">ACCEDER</button>
             </div>

@@ -9,7 +9,7 @@ function InfoLesson() {
     const title = location.state.title;
     const lesson = location.state.lesson;
     const [data, setData] = useState("<div></div>");
-
+    
     useEffect(() => {
         Axios.post("http://localhost:5000/api/getInfoLesson", { title: title, lesson: lesson})
         .then(response => {
@@ -36,7 +36,7 @@ function InfoLesson() {
                     {parse(data)}
                 </div>
                 <div className="footer">
-                    <Link className="btn" to="/home/mateDBH4/funcPolinomicas/ejercicios">EJERCICIOS</Link>
+                    <Link className="btn" to="/home/mateDBH4/funcPolinomicas/ejercicios" state={{foro: "Foro " + title, lesson: lesson}}>EJERCICIOS</Link>
                 </div>
             </div>
         </div>

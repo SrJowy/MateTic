@@ -147,6 +147,50 @@ app.post("/api/getInfoLesson", (req, res) => {
     connection.query(select, vars, (er, re, fi) => {
         if (er) console.log(er);
         else res.send(re);
-    })
+    });
     connection.end();
+});
+
+app.post("/api/getExercise", (req, res) => {
+
+    const lesson = req.body.lesson;
+
+    var connection = mysql.createConnection(data);
+
+    const select = "SELECT contenido FROM ejercicio WHERE apartado = ?";
+    const vars = [lesson];
+    connection.query(select, vars, (er, re, fi) => {
+        if (er) console.log(er);
+        else res.send(re);
+    });
+    connection.end();
+});
+
+app.post("/api/correctExercise", (req, res) => {
+    const lesson = req.body.lesson;
+    const responses = req.body.responses;
+    var correct = false;
+    if (lesson === "Funciones polinomicas") {
+        for (val in responses) {
+            if (val == "o1" && responses[val] === "3") {
+                correct = true;
+            } else if (val == "o2" && responses[val] === "cuadraticaNoX") {
+                correct = true;
+            } else if (val == "o3" && responses[val] === "02") {
+                correct = true;
+            } else if (val == "o41" && responses[val] === "00") {
+                correct = true;
+            } else if (val == "o43" && responses[val] === "10") {
+                correct = true;
+            } else if (val == "o5" && responses[val] === "f1") {
+                correct = true;
+            } else if (val == "o6" && responses[val] === "f4") {
+                correct = true;
+            } else {
+                correct = false;
+                break;
+            }
+        }
+        correct ? res.send({correct: true, message: "Ejercicio realizado correctamente"}) : res.send({correct: false, message: "Se han encontrado fallos"})
+    }
 });
