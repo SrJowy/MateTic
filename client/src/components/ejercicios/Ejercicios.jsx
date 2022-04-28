@@ -3,12 +3,17 @@ import './ejercicios.css'
 import Axios from 'axios'
 import { useLocation } from 'react-router-dom';
 import parse from 'html-react-parser';
+import Cookies from 'universal-cookie';
 
 export default function Ejercicios() {
     const location = useLocation();
     const lesson = location.state.lesson;
 
     const [data, setData] = useState("<div></div>");
+    const [idEj, setIdEj] = useState(0);
+
+    const c = new Cookies();
+    const cookie = c.get("username");
 
     function checkAnswers() {
         var toSendId = [];
@@ -25,7 +30,7 @@ export default function Ejercicios() {
         toSendId.forEach((element, index) =>{
             toSend[element] = toSendResponse[index];
         });
-        Axios.post("http://localhost:5000/api/correctExercise", {lesson: lesson, responses: toSend})
+        Axios.post("http://localhost:5000/api/correctExercise", {lesson: lesson, responses: toSend, id: idEj, mail: cookie[0]})
         .then(res => {
             alert(res.data.message)
         });
@@ -35,6 +40,7 @@ export default function Ejercicios() {
         Axios.post("http://localhost:5000/api/getExercise", {lesson: lesson})
         .then(res => {
             setData(res.data[0].contenido)
+            setIdEj(res.data[0].id_ejercicio)
         });
     }, [lesson]);
 

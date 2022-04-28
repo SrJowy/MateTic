@@ -22,9 +22,9 @@ function InfoLesson() {
         <div className="info-course">
             <h2 className="subtitle">{ title }</h2>
             <p className="subject-s">&gt; Funciones polinómicas</p>
-            <h2 className="subject-activable">Funciones racionales</h2>
-            <h2 className="subject-activable">Funciones exponenciales y logarítmicas</h2>
-            <h2 className="subject-activable">Funciones trigonométricas</h2>
+            <h2 className="subject">Funciones racionales</h2>
+            <h2 className="subject">Funciones exponenciales y logarítmicas</h2>
+            <h2 className="subject">Funciones trigonométricas</h2>
         </div>
         <div className="comp-ex">
             <div className="container-ejs form-ej">

@@ -17,7 +17,7 @@ export default function Welcome() {
       if (response.data["session"] === true) {
         const cookies = new Cookies();
         if(!cookies.get("username")) {
-          const data = [response.data["email"], response.data["nomb"], response.data["rol"]];
+          const data = [response.data["email"], response.data["nomb"], response.data["rol"], response.data["col"]];
           cookies.set("username", data, {path: '/'});
         }
         setError(false)

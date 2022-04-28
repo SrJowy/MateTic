@@ -43,6 +43,10 @@
 
 .option-user {
     display: flex;
+    margin-top: 0px
+}
+
+.margin-30 {
     margin-top: 30px;
 }
 
@@ -62,4 +66,20 @@
     padding: 5px;
     margin-top: 8px;
     margin-left: 0;
+}
+
+.btn-end {
+    display: flex;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.btn-end > .btn {
+    height: 40px;
+    padding: 4px;
+    width: 100px;
+}
+
+.table {
+    margin: 20px;
 }

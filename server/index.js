@@ -26,13 +26,13 @@ app.post("/api/checkData", (req, res) => {
     const password = req.body.pass;
     
     var connection = mysql.createConnection(data);
-    const select = "SELECT nomb_ap, contra, rol FROM usuario WHERE correo = ?";
+    const select = "SELECT nomb_ap, contra, rol, colegio FROM usuario WHERE correo = ?";
     const vars = [mail]
     connection.query(select, vars, (error, result) => {
         if (error) console.log(error)
         else {
             if (bcrypt.compareSync(password, result[0].contra)) {
-                res.send({email: mail, nomb: result[0].nomb_ap, rol: result[0].rol, session: true})
+                res.send({email: mail, nomb: result[0].nomb_ap, rol: result[0].rol, col: result[0].colegio, session: true})
             } else {
                 res.send({email: mail, session: false})
             }
@@ -151,13 +151,44 @@ app.post("/api/getInfoLesson", (req, res) => {
     connection.end();
 });
 
+
+app.post("/api/setMail", (req, res) => {
+    const newMail = req.body.mail;
+    const actMail = req.body.actMail;
+    var connection = mysql.createConnection(data);
+
+    const update = "UPDATE usuario SET correo = ? WHERE correo = ?;";
+    const vars = [newMail, actMail];
+    connection.query(update, vars, (er, re, fi) => {
+        if (re.changedRows == 0) {
+            res.send({success: false, message: "El correo registrado ya existe"});
+        } else {
+            res.send({success: true, message: "El correo se ha registrado correctamente"});
+        }
+    })
+
+})
+
+app.post("/api/setPassword", (req, res) => {
+    const mail = req.body.mail;
+    const password = req.body.password;
+    var connection = mysql.createConnection(data);
+
+    const hash = bcrypt.hashSync(password, 1);
+    const update = "UPDATE usuario SET contra = ? WHERE correo = ?;";
+    const vars = [hash, mail];
+    connection.query(update, vars, (er,re, fi) => {
+        res.send({message: "La contraseña se ha actualizado correctamente"});
+    });
+})
+
 app.post("/api/getExercise", (req, res) => {
 
     const lesson = req.body.lesson;
 
     var connection = mysql.createConnection(data);
 
-    const select = "SELECT contenido FROM ejercicio WHERE apartado = ?";
+    const select = "SELECT id_ejercicio,contenido FROM ejercicio WHERE apartado = ?";
     const vars = [lesson];
     connection.query(select, vars, (er, re, fi) => {
         if (er) console.log(er);
@@ -166,9 +197,46 @@ app.post("/api/getExercise", (req, res) => {
     connection.end();
 });
 
+app.post("/api/createUser", (req, res) => {
+    const mail = req.body.mail;
+    const name = req.body.name;
+    const password = req.body.password;
+    const colegio = req.body.colegio;
+    const rol = req.body.rol;
+
+    const hash = bcrypt.hashSync(password, 1);
+    var connection = mysql.createConnection(data);
+
+    const insert = "INSERT INTO usuario VALUES (?,?,?,?,?)";
+    const vars = [mail, name, hash, colegio, rol];
+    connection.query(insert, vars, (er, re, fi) => {
+        if (er) console.log(er);
+        else {
+            res.send({message: "Se ha creado el usuario correctamente"});
+        }
+    });
+    connection.end();
+});
+
+app.post("/api/getMarks", (req, res) => {
+    const mail = req.body.mail;
+
+    const connection = mysql.createConnection(data);
+    const select = "SELECT correcto, apartado, fecha_hora FROM realizacion_ejercicio NATURAL JOIN ejercicio WHERE correo = ?;";
+    const vars = [mail];
+    connection.query(select, vars, (er, re, fi) => {
+        if (er) console.log(er);
+        else {
+            res.send(re);
+        }
+    });
+})
+
 app.post("/api/correctExercise", (req, res) => {
     const lesson = req.body.lesson;
     const responses = req.body.responses;
+    const id = req.body.id;
+    const mail = req.body.mail;
     var correct = false;
     if (lesson === "Funciones polinomicas") {
         for (val in responses) {
@@ -191,6 +259,16 @@ app.post("/api/correctExercise", (req, res) => {
                 break;
             }
         }
-        correct ? res.send({correct: true, message: "Ejercicio realizado correctamente"}) : res.send({correct: false, message: "Se han encontrado fallos"})
     }
+
+    const connection = mysql.createConnection(data);
+    const insert = "INSERT INTO realizacion_ejercicio (correcto, correo, id_ejercicio) VALUES (?,?,?);";
+    const vars = [correct, mail, id];
+    connection.query(insert, vars, (er, re, fi) => {
+        if (er) console.log(er)
+        else {
+            correct ? res.send({correct: true, message: "Ejercicio realizado correctamente"}) : res.send({correct: false, message: "Se han encontrado fallos"})
+        }
+    })
+    connection.end();
 });

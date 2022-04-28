@@ -50,7 +50,7 @@ function Home () {
             <Link to="/home/user">Datos usuario</Link>
           </li>
           <li>
-            <Link to="/home/calificaciones">Calificaciones</Link>
+            <Link to="/home/calificaciones">Historial de ejercicios</Link>
           </li>
         </ul>
         <div className= "profile-content">

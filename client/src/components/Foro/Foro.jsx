@@ -42,7 +42,7 @@ const Foro = () => {
                 </div>
             </div>
             {data ? dataList.map((val) => {
-                 return <div className="foro-data">
+                return <div key = {Math.random().toString(36).slice(-8)} className="foro-data">
                     <div className="column-user">
                         <img src={pic} alt="profile-img" className="photo-user"></img>
                         <h4> { val.correo } </h4>
@@ -51,7 +51,7 @@ const Foro = () => {
                         <h3> { val.titulo } </h3>
                         <p> { val.mensaje } </p> 
                         <div className="data-bottom">
-                            <Link className="btn" to="/home/foroGeneral/discussion" key={ val.titulo } state={ {title: val.titulo, message: val.mensaje, user: val.correo, foro: name} }>Ver discusión</Link>   
+                            <Link className="btn" to="/home/foroGeneral/discussion" state={ {title: val.titulo, message: val.mensaje, user: val.correo, foro: name} }>Ver discusión</Link>   
                         </div>
                     </div>
                 </div>
