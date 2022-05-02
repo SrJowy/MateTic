@@ -70,7 +70,7 @@ app.post("/api/sendNewDiscussion", async (req, res) => {
 
     connection.query(insert, vars, (er, re, fi) => {
         if (er) console.log(er);
-        else res.send({text: 'Se ha añadido tu respuesta'})
+        else res.send({text: 'Se ha creado tu discusión'})
     })
     connection.end();
 })

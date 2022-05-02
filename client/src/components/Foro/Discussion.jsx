@@ -53,7 +53,7 @@ const Discussion = () => {
             <div className="foro-responses">
                 <h3>Respuestas</h3>
                 {dataList.map((val) => {
-                    return <div class="response">
+                    return <div className="response">
                         <div className="column-user">
                             <img src={pic} alt="profile-img" className="photo-user"></img>
                             <h4> { val.correo }</h4>

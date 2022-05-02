@@ -26,8 +26,8 @@ export function App() {
           <Route path="/home/foroGeneral/escribir" element = {<PrivateRoute> <div> <Home /><Escribir /></div></PrivateRoute>} />
           <Route path="/home/foroGeneral/discussion" element = {<PrivateRoute> <div> <Home /><Discussion /></div></PrivateRoute>} />
           <Route path="/home/mateDBH4" element = { <PrivateRoute> <div><Home /><Lessons /></div> </PrivateRoute>} />
-          <Route path="/home/mateDBH4/funcPolinomicas" element = { <PrivateRoute><div><Home /> <InfoLesson /> </div> </PrivateRoute>} />
-          <Route path="/home/mateDBH4/funcPolinomicas/ejercicios" element = { <PrivateRoute> <div><Home /><Ejercicios /></div></PrivateRoute>} />
+          <Route path="/home/mateDBH4/teoria" element = { <PrivateRoute><div><Home /> <InfoLesson /> </div> </PrivateRoute>} />
+          <Route path="/home/mateDBH4/teoria/ejercicios" element = { <PrivateRoute> <div><Home /><Ejercicios /></div></PrivateRoute>} />
         </Routes>
     </BrowserRouter>
     
