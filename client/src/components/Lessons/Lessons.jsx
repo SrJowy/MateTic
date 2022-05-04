@@ -5,16 +5,20 @@ function Lessons() {
   const unitFe = "Funciones Elementales";
   const unitF = "Funciones";
   const lesson91 = "Funciones polinomicas";
-  const lesson82 = "Dominio y recorrido"
-  const lesson81 = "Correspondencias y funciones"
-  const lesson83 = "Operaciones con funciones"
-  const lesson84 = "Composicion de funciones"
-  const lesson85 = "Funcion inversa"
-  const lesson86 = "Puntos de corte con los ejes"
-  const lesson87 = "Simetria de una funcion"
-  const lesson88 = "Periodicidad de una funcion"
-  const lesson89 = "Continuidad de una funcion"
-  const lesson810 = "Crecimiento y decrecimiento"
+  const lesson92 = "Funciones racionales";
+  const lesson93 = "Funciones exponenciales y logaritmicas";
+  const lesson94 = "Funciones trigonometricas";
+  const lesson82 = "Dominio y recorrido";
+  const lesson81 = "Correspondencias y funciones";
+  const lesson83 = "Operaciones con funciones";
+  const lesson84 = "Composicion de funciones";
+  const lesson85 = "Funcion inversa";
+  const lesson86 = "Puntos de corte con los ejes";
+  const lesson87 = "Simetria de una funcion";
+  const lesson88 = "Periodicidad de una funcion";
+  const lesson89 = "Continuidad";
+  const lesson810 = "Crecimiento y decrecimiento";
+  const lesson811 = "Acotacion y asintotas";
   return (
     <div className="home-content">
       <div className ="math-content">
@@ -52,7 +56,7 @@ function Lessons() {
                 <Link to="/home/mateDBH4/teoria" state={{title: unitF, lesson: lesson810}} >Crecimiento y decrecimiento</Link>
               </div>
               <div className="subject-activable">
-                <Link to="/home/mateDBH4/teoria" state={{title: unitF, lesson: lesson810}} >Acotación y asíntotas</Link>
+                <Link to="/home/mateDBH4/teoria" state={{title: unitF, lesson: lesson811}} >Acotación y asíntotas</Link>
               </div>
           </div>
           <div className="container-block">
@@ -60,9 +64,15 @@ function Lessons() {
               <div className="subject-activable">
                   <Link to="/home/mateDBH4/teoria" state={{title: unitFe, lesson: lesson91}}>Funciones polinómicas</Link>
               </div>
-              <h2 className="subject-activable">Funciones racionales</h2>
-              <h2 className="subject-activable">Funciones exponenciales y logarítmicas</h2>
-              <h2 className="subject-activable">Funciones trigonométricas</h2>
+              <div className="subject-activable">
+                <Link to="/home/mateDBH4/teoria" state={{title: unitFe, lesson: lesson92}}>Funciones racionales</Link>
+              </div>
+              <div className="subject-activable">
+                <Link to="/home/mateDBH4/teoria" state={{title: unitFe, lesson: lesson93}}>Funciones exponenciales y logarítmicas</Link>
+              </div>
+              <div className="subject-activable">
+                <Link to="/home/mateDBH4/teoria" state={{title: unitFe, lesson: lesson94}}>Funciones trigonométricas</Link>
+              </div>
           </div>
           <div className="container-block">
           <h3 className="subtitle">10. Introducción al concepto límite</h3>

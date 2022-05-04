@@ -259,6 +259,51 @@ app.post("/api/correctExercise", (req, res) => {
                 break;
             }
         }
+    } else if (lesson === "Dominio y recorrido") {
+        for (val in responses) {
+            if (val == "o1" && responses[val] === "R--3") {
+                correct = true;
+            } else if (val == "o2" && responses[val] === "R") {
+                correct = true;
+            } else if (val == "o3" && responses[val] === "-1") {
+                correct = true;
+            } else {
+                correct = false;
+                break;
+            }
+        }
+    } else if (lesson === "Operaciones con funciones") {
+        for (val in responses) {
+            if (val == "o1" && responses[val] === "x2+2x-3") {
+                correct = true;
+            } else if (val == "o2" && responses[val] === "-x2+1") {
+                correct = true;
+            } else if (val == "o3" && responses[val] === "x3+x2-2x-1") {
+                correct = true;
+            } else if (val == "o4" && responses[val] === "x+2") {
+                correct = true;
+            } else if (val == "o5" && responses[val] === "x2-x-2") {
+                correct = true;
+            } else if (val == "o6" && responses[val] === "x+1") {
+                correct = true;
+            } else {
+                correct = false;
+                break;
+            }
+        }
+    } else if (lesson === "Continuidad") {
+        for (val in responses) {
+            if (val == "o1" && responses[val] === "b") {
+                correct = true;
+            } else if (val == "o2" && responses[val] === "c") {
+                correct = true;
+            } else if (val == "o3" && responses[val] === "a") {
+                correct = true;
+            } else {
+                correct = false;
+                break;
+            }
+        }
     }
 
     const connection = mysql.createConnection(data);

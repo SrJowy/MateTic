@@ -13,7 +13,7 @@ function Home () {
   const data = {foro: "Foro General"};
 
   const signOut = () => {
-    c.remove('username');
+    c.remove('username', { path: '/' });
     navigate("/")
   }
 
