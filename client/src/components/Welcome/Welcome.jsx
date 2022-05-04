@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
+import logo from './imgs/logoNegro.png'
 
 export default function Welcome() {
   const [mail, setMail ] = useState("");
@@ -40,8 +41,8 @@ export default function Welcome() {
             </div>
             { error ? <p className="error-msg"> El usuario o contraseña son incorrectos</p> : null }
         </div>
-        <div className = "column">
-          <iframe className = "video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div className = "column img-logo">
+          <img src={logo} alt="l" />
         </div>
     </div>
   )
