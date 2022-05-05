@@ -39,6 +39,7 @@ function systemInstall() {
 function startBackend() {
     cd db
     sudo docker-compose up -d
+    sleep 5
     docker exec -i dev_mysql  mysql -uroot -ppassword  < mysql.sql
     cd ..
     cd server
@@ -51,6 +52,12 @@ function startFrontend() {
     npm start
 }
 
+function stopDB() {
+    cd db
+    sudo docker-compose down
+    cd ..
+}
+
 function fin() {
     echo -e "¿Quieres salir del programa?(S/N)\n"
     read respuesta
@@ -61,7 +68,7 @@ function fin() {
 }
 
 op=0
-while test $op -ne 6
+while test $op -ne 7
 do
     echo -e "Se debe abrir otra terminal con la ejecución del programa para iniciar el cliente \n"
     echo -e "1) Instalar Node JS \n"
@@ -69,7 +76,8 @@ do
     echo -e "3) Instalar el sistema \n"
     echo -e "4) Iniciar el servidor \n"
     echo -e "5) Iniciar el cliente \n"
-    echo -e "6) Salir del programa \n"
+    echo -e "6) Detener la base de datos \n"
+    echo -e "7) Salir del programa \n"
     read -p "Elige una opción:" op
     case $op in
         1) nodeInstall;;
@@ -77,7 +85,8 @@ do
         3) systemInstall;;
         4) startBackend;;
         5) startFrontend;;
-        6) fin;;
+        6) stopDB;;
+        7) fin;;
         *) ;;
     esac
 done
