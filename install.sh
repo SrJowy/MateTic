@@ -39,7 +39,8 @@ function systemInstall() {
 function startBackend() {
     cd db
     sudo docker-compose up -d
-    sleep 5
+    echo -e "Añadiendo la base de datos... \n"
+    sleep 10
     docker exec -i dev_mysql  mysql -uroot -ppassword  < mysql.sql
     cd ..
     cd server
