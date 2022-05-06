@@ -20,7 +20,7 @@ const UserPage = () => {
     .then(response => {
         if (response.data["success"]) {
           c[0] = mail;
-          cookies.remove("username");
+          cookies.remove("username", {path: '/'});
           cookies.set("username", c, {path: '/'});
           setNewMail(mail)
           alert(response.data["message"]);
