@@ -23,6 +23,8 @@ El servidor correrá en el puerto 5000 del ordenador, mientras que el cliente lo
 
 Una vez arrancado el cliente, se abrirá automáticamente la aplicación en el navegador por defecto.
 
+La cuenta para realizar las pruebas pertienentes será *admin@admin.com* (Usuario) y *admin* (contraseña).
+
 ## Detención del sistema
 
 Para detener el sistema, pulsar CTRL + C en cada una de las consolas que están corriendo el cliente y el servidor.
